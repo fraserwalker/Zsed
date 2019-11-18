@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+		 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- parent pom -->
+    <!-- best practise is to increase release versions to support blue/green or canary releases -->
+    <!-- see https://maven.apache.org/guides/mini/guide-naming-conventions.html for conventions -->
+    <groupId>sk.zsdis.fuse</groupId>
+    <artifactId>fuse-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+
+    <!-- top level properties -->
+    <properties>
+        <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
+        <fuse.version>7.4.0.fuse-740036-redhat-00002</fuse.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+    </properties>
+
+    <!-- modules that depend on this parent -->
+    <!-- good practise is to name projects succinctly -->
+    <modules>
+        <module>java-restJson-jdbc</module>
+        <module>java-restJsonXml-jdbc</module>
+        <module>java-soap11-jdbc</module>
+        <module>java-soap12-jdbc</module>
+    </modules>
+
+    <!-- red hat repositories -->
+    <!-- best practise is to depend on general availability only for production applications -->
+    <repositories>
+        <repository>
+            <id>red-hat-ga-repository</id>
+            <url>https://maven.repository.redhat.com/ga</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>red-hat-ga-repository</id>
+            <url>https://maven.repository.redhat.com/ga</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <!-- depend on red hat bill of materials -->
+    <!-- best practise is to depend on libraries included in the BOM in order to guarantee support -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.redhat-fuse</groupId>
+                <artifactId>fuse-springboot-bom</artifactId>
+                <version>${fuse.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
