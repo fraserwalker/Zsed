@@ -12,9 +12,10 @@
     <artifactId>java-restJson-jdbc</artifactId>
 
     <dependencies>
+        <!-- spring-boot -->
         <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-spring-boot-starter-jaxrs</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
@@ -30,6 +31,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <!-- camel -->
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-spring-boot-starter</artifactId>
@@ -46,13 +48,16 @@
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-jackson-starter</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-swagger-java-starter</artifactId>
-        </dependency>
+        <!-- fabric8 -->
         <dependency>
             <groupId>io.fabric8</groupId>
             <artifactId>openshift-client</artifactId>
+        </dependency>
+        <!-- custom -->
+        <dependency>
+            <groupId>sk.zsdis.fuse</groupId>
+            <artifactId>model</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
