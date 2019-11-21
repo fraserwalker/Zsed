@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tns="http://sk.zsdis.fuse" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  targetNamespace="http://sk.zsdis.fuse">
+
+    <wsdl:types>
+        <xs:schema targetNamespace="http://sk.zsdis.fuse">
+            <xs:element name="inputQuery">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="eics" minOccurs="0" maxOccurs="1">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="eic" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element type="xs:date" name="validFrom" minOccurs="0" maxOccurs="1"/>
+                        <xs:element type="xs:string" name="traderEIC" minOccurs="0" maxOccurs="1"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="outputQuery">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="eics" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="eic" type="xs:string" minOccurs="1" maxOccurs="1" />
+                                    <xs:element name="kodHdoPublic" type="xs:string" minOccurs="1" maxOccurs="1" />
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+
+
+    <!--Define input and output parameters -->
+    <wsdl:message name="inputQuery">
+        <wsdl:part name="in" element="tns:inputQuery" />
+    </wsdl:message>
+    <wsdl:message name="outputQuery">
+        <wsdl:part name="out" element="tns:outputQuery" />
+    </wsdl:message>
+
+    <!--Define port definition -->
+    <wsdl:portType name="QueryEndpoint">
+        <wsdl:operation name="Query">
+            <wsdl:input message="tns:inputQuery" />
+            <wsdl:output message="tns:outputQuery" />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <!--Bind Soap operation and service -->
+    <wsdl:binding name="QueryBinding" type="tns:QueryEndpoint">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="Query">
+            <soap:operation soapAction="http://sk.zsdis.fuse"
+                            style="document" />
+            <wsdl:input>
+                <soap:body parts="in" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="out" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <!--Define service -->
+    <wsdl:service name="QueryEndpointService">
+        <wsdl:port name="QueryEndpoint" binding="tns:QueryBinding">
+            <soap:address location="http://localhost:8080/cxf/query" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
