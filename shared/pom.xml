@@ -9,13 +9,19 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>model</artifactId>
+    <artifactId>shared</artifactId>
 
     <dependencies>
-        <!-- Serializarion / Deserialization -->
+        <!-- Camel -->
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+        </dependency>
+        <!-- Shared -->
+        <dependency>
+            <groupId>sk.zsdis.fuse</groupId>
+            <artifactId>model</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 

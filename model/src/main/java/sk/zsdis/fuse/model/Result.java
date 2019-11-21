@@ -1,5 +1,7 @@
 package sk.zsdis.fuse.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -20,6 +22,7 @@ public class Result {
         return kodHdoPublic;
     }
 
+    @JsonProperty("kod_hdo_public")
     public void setKodHdoPublic(String kodHdoPublic) {
         this.kodHdoPublic = kodHdoPublic;
     }
