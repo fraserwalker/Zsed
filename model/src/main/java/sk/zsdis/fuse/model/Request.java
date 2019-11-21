@@ -2,14 +2,12 @@ package sk.zsdis.fuse.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@XmlRootElement
+@XmlRootElement(name = "Request")
 public class Request {
 
     private List<String> eic = new ArrayList<String>();
