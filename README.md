@@ -9,6 +9,8 @@
     * _Code (Java) Soap 1.1 Service to Postgres Database_
 * **java-soap12-jdbc**
     * _Code (Java) Soap 1.2 Service to Postgres Database_
+* **xml-ws-contract-first-jdbc**
+    * _XML Soap 1.1 Service to Postgres Database_
 ## Requirements
 * A service should return data from a database (Postgres) using following select statement:
 

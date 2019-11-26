@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:cxf="http://camel.apache.org/schema/cxf"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf-2.8.3.xsd    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring       http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <cxf:cxfEndpoint address="/query" endpointName="tns:QueryEndpoint"
+        id="queryBean" serviceClass="sk.zsdis.fuse.QueryEndpoint"
+        serviceName="tns:QueryEndpointService"
+        wsdlURL="META-INF/wsdl/service.wsdl" xmlns:tns="http://fuse.zsdis.sk"/>
+    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+        <route id="Contract_First_WS">
+            <from id="_from1" uri="cxf:bean:queryBean"/>
+            <log id="Log_Message" logName="RECIEVED" message="${body}"/>
+        </route>
+    </camelContext>
+</beans>

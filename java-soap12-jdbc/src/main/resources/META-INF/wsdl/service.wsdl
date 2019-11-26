@@ -2,12 +2,12 @@
 
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
                   xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
-                  xmlns:tns="http://sk.zsdis.fuse" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:tns="http://fuse.zsdis.sk" xmlns:xs="http://www.w3.org/2001/XMLSchema"
                   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-                  targetNamespace="http://sk.zsdis.fuse">
+                  targetNamespace="http://fuse.zsdis.sk">
 
     <wsdl:types>
-        <xs:schema targetNamespace="http://sk.zsdis.fuse">
+        <xs:schema targetNamespace="http://fuse.zsdis.sk">
             <xs:element name="inputQuery">
                 <xs:complexType>
                     <xs:sequence>
@@ -61,7 +61,7 @@
     <wsdl:binding name="QueryBinding" type="tns:QueryEndpoint">
         <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
         <wsdl:operation name="Query">
-            <soap12:operation soapAction="http://sk.zsdis.fuse"
+            <soap12:operation soapAction="http://fuse.zsdis.sk"
                             style="document" />
             <wsdl:input>
                 <soap12:body parts="in" use="literal" />
