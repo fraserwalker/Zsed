@@ -6,10 +6,20 @@ spec:
           resources:
             requests:
               cpu: "0.2"
-              memory: 256Mi
+              memory: 512Mi
             limits:
               cpu: "1.0"
-              memory: 256Mi
+              memory: 512Mi
           env:
             - name: SPRING_APPLICATION_JSON
               value: '{"server":{"undertow":{"io-threads":1, "worker-threads":2 }}}'
+          livenessProbe:
+              httpGet:
+                path: /health/actuator
+                port: 8080
+                scheme: HTTP
+          readinessProbe:
+              httpGet:
+                path: /actuator/health
+                port: 8080
+                scheme: HTTP

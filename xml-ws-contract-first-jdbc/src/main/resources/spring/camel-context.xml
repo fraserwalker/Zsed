@@ -10,6 +10,9 @@
         <route id="Contract_First_WS">
             <from id="_from1" uri="cxf:bean:queryBean"/>
             <log id="Log_Message" logName="RECIEVED" message="${body}"/>
+            <transform id="_transform1">
+                <groovy>new sk.zsdis.fuse.OutputQuery()</groovy>
+            </transform>
         </route>
     </camelContext>
 </beans>

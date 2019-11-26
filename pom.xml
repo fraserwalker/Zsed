@@ -19,6 +19,7 @@
         <fuse.version>7.4.0.fuse-sb2-740019-redhat-00005</fuse.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+        <spring-cloud.version>0.1.6.fuse-740017-redhat-00001</spring-cloud.version>
     </properties>
 
     <!-- modules that depend on this parent -->

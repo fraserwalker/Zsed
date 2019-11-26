@@ -61,6 +61,11 @@
             <groupId>io.fabric8</groupId>
             <artifactId>openshift-client</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.fabric8</groupId>
+            <artifactId>spring-cloud-kubernetes-core</artifactId>
+            <version>0.1.6.fuse-740017-redhat-00001</version>
+        </dependency>
         <!-- custom -->
         <dependency>
             <groupId>sk.zsdis.fuse</groupId>
@@ -124,6 +129,9 @@
                                 </goals>
                             </execution>
                         </executions>
+                        <!-- This must be done to override current default. For health checks modify the deployment.yml -->
+                        <configuration>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>

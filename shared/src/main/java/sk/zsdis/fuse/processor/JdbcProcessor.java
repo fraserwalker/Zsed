@@ -53,7 +53,7 @@ public class JdbcProcessor implements Processor {
         Request request = (Request) exchange.getMessage().getBody();
         String SELECT = "SELECT om.eic, om.kod_hdo_public ";
         String FROM = "FROM odberne_miesto om " +
-                "INNER JOIN priradenie_odberneho_miesta_ucastnikovi_trhu pomut " +
+                "LEFT JOIN priradenie_odberneho_miesta_ucastnikovi_trhu pomut " +
                 "ON om.eic = pomut.odberne_miesto_eic";
         String WHERE = " WHERE";
         StringBuilder querySelect = new StringBuilder(SELECT).append(FROM);
