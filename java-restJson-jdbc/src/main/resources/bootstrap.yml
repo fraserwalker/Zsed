@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: java-restjson-jdbc
+  cloud:
+    kubernetes:
+      reload:
+        enabled: true
